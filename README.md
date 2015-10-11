@@ -6,9 +6,10 @@ Useful API References links :
 Live editing graph :
 - Desmos : https://www.desmos.com/
 - Example d'utilisation : https://www.desmos.com/calculator/zukjgk9iry
-
+##
 ### Clamp
 Bloque une valeur entre un minimum et un maximum
+
 ```c
 float clamp (float value, float min, float max)
 {
@@ -18,9 +19,11 @@ float clamp (float value, float min, float max)
 // Unity
 Mathf.Clamp(value, min, max);
 ```
-
+![Clamp](http://leon196.github.io/Cours/images/clamp.png)
+##
 ### Normalize a vector
-Transform la magnitude du vecteur (sa distance) pour qu'elle soit egale a 1
+Transforme la magnitude du vecteur (sa distance) pour qu'elle soit égale à 1
+
 ```c
 Vector2 normalize (Vector2 vector)
 {
@@ -33,9 +36,10 @@ Vector2 normalize (Vector2 vector)
 // Unity
 vector.Normalize();
 ```
-
+![Clamp](http://leon196.github.io/Cours/images/normalize.png)
+##
 ### Vector from two points
-Le vecteur qui va d'un point d'origine a un point cible
+Le vecteur qui va d'un point d'origine à un point cible
 ```c
 Vector2 vectorFrom (Vector2 a, Vector2 b)
 {
@@ -48,8 +52,9 @@ Vector2 vectorFrom (Vector2 a, Vector2 b)
 // Unity
 Vector2 c = b - a;
 ```
+![Clamp](http://leon196.github.io/Cours/images/vectorFromTwoPoints.png)
 
-
+##
 ### Find the angle of a vector (atan, atan2)
 Calcule l'angle d'un vecteur. L'ordre des arguments est **y** puis **x**
 ```c
@@ -58,18 +63,20 @@ float angleOfVector (Vector2 vector)
   return Mathf.Atan2(vector.y, vector.x);
 }
 ```
-
+##
 ### Make a vector from an angle
-Construit un vecteur normalized avec un angle
+Construit un vecteur normalisé à partir d'un angle
 ```c
 Vector2 vectorOfAngle (float angle)
 {
   return new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
 }
 ```
+![Clamp](http://leon196.github.io/Cours/images/vectorFromAngle.png)
 
+##
 ### Linear Interpolation (mix, lerp)
-Melange deux valeurs selon un ratio. Le ratio doit etre bloque entre 0 et 1
+Mélange deux valeurs selon un ratio. Le ratio doit être bloqué entre 0 et 1
 ```c
 float mix (float a, float b, float ratio)
 {
@@ -79,18 +86,22 @@ float mix (float a, float b, float ratio)
 // Unity
 Mathf.Lerp(a, b, ratio);
 ```
+![Clamp](http://leon196.github.io/Cours/images/mix.png)
 
+##
 ### The right side of a vector
-Calcule de la perpendiculaire d'un vecteur
+Calcule la perpendiculaire d'un vecteur
 ```c
 Vector2 getRight (Vector2 vector)
 {
   return new Vector2( vector.y, -vector.x );
 }
 ```
+![Clamp](http://leon196.github.io/Cours/images/rightOfVector.png)
 
+##
 ### Iterate circle perimeter
-Calcule les points du perimetre d'un cercle, selon une position, un rayon et une resolution
+Calcule les points du périmètre d'un cercle, selon une position, un rayon et une résolution
 ```c
 Vector2 origin;
 float radius = 100;
@@ -102,19 +113,22 @@ for (int i = 0; i < resolution; ++i)
   Vector2 circlePoint = origin + direction * radius;
 }
 ```
+![Clamp](http://leon196.github.io/Cours/images/circle.png)
 
+##
 # Arrays
 
 Useful API References links :  
 - Array : http://docs.unity3d.com/ScriptReference/Array.html
 - List : https://msdn.microsoft.com/en-us/library/6sh2ey19.aspx
 
+##
 ### Array
 ```c
 float[] array = new float[32];
 int count = array.Length;
 ```
-
+##
 ### List in Unity
 ```c++
 using System.Collections.Generic;
@@ -148,9 +162,9 @@ public class MyClass : MonoBehaviour
 }
 ```
 
-
+##
 ### Random item
-Retourne un element de la liste de maniere aleatoire
+Retourne un élément de la liste de manière aléatoire
 ```c
 float[] array = new float { 54, 654, 10, 89, 64, 32, 17 };
 
@@ -160,9 +174,9 @@ float randomItem ()
   return array[randomIndex];
 }
 ```
-
+##
 ### Suffle array
-Rearrange aleatoirement les index d'une liste
+Réarrange aléatoirement les indices d'une liste
 ```c
 // http://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
 
@@ -178,10 +192,10 @@ float[] suffleArray (float[] array)
  return array;
 }
 ```
-
+##
 ### Random unique numbers
-Genere une liste de nombre consecutive dont l'ordre est aleatoire  
-Utile pour creer du hazard sans retomber tout de suite sur une meme valeur
+Génère une liste de nombre consécutive dont l'ordre est aléatoire  
+Utile pour créer du hazard sans retomber tout de suite sur une même valeur
 ```c
 float[] randomUniqueNumbers (int range)
 {
@@ -193,17 +207,18 @@ float[] randomUniqueNumbers (int range)
   return shuffleArray(list);
 }
 ```
-
+##
 # Animation
 
 ### Tweening
 > Le terme tweening (ou interpolation) désigne un procédé dans l'animation qui permet de générer des images intermédiaires successives de telle sorte qu'une image s'enchaîne agréablement et de façon fluide avec la suivante.  
--- Wikipedia
+-- Wikipedia  
 
+##
 ### Easing
-La maniere dont le tweening entre deux etats va etre calculee  
+La manière dont le tweening entre deux états va être calculée  
 Des examples : http://easings.net/fr
-
+##
 ### Simple tweening with linear easing
 ```c
 float timeStarted;
@@ -225,20 +240,28 @@ void UpdateTween ()
 }
 ```
 
+![Clamp](http://leon196.github.io/Cours/images/animation.png)
+
+Example d'utilisation avec une interpolation :
+![Clamp](http://leon196.github.io/Cours/images/animation2.png)
+
+Example d'un easing special : commence a 0 passe par 1 et finit a 0
+![Clamp](http://leon196.github.io/Cours/images/animation3.png)
+##
 # Physics  
 
 Useful API References links :  
 - Bounds : http://docs.unity3d.com/ScriptReference/Bounds.html
 - Physics : http://docs.unity3d.com/ScriptReference/Physics.html
 
-
+##
 ### Simple border collision
 
 ```c
 position.x = Mathf.Clamp(position.x, 0, Screen.width);
 position.y = Mathf.Clamp(position.y, 0, Screen.height);
 ```
-
+##
 ### Simple border bounce
 
 ```c
@@ -251,7 +274,8 @@ else if (position.y < 0 || position.y > Screen.height)
   direction.y = direction.y * -1;
 }
 ```
-
+![Clamp](http://leon196.github.io/Cours/images/bounce.png)
+##
 ### Simple point collision with rectangle
 Bounds est le rectangle qui engloble de l'objet  
 http://docs.unity3d.com/ScriptReference/Bounds.html
@@ -274,7 +298,8 @@ bool hitBoxCollision (Vector2 point, Bounds bounds)
 // Unity
 bounds.Contains(position);
 ```
-
+![Clamp](http://leon196.github.io/Cours/images/boxCollision.png)
+##
 ### Simple point collision with circle
 ```c
 
@@ -283,10 +308,11 @@ bool hitCircleCollision (Vector2 point, Vector2 circlePosition, float circleRadi
   return Vector2.Distance(point, circlePosition) - circleRadius <= 0;
 }
 ```
-
+![Clamp](http://leon196.github.io/Cours/images/circleCollision.png)
+##
 ### Fade a value to 0
-Amene une valeur positive ou negative vers 0  
-Utile pour tout ce qui touche a l'inertie, la velocite ou un flux
+Amène une valeur positive ou négative vers 0  
+Utile pour, par exemple, à l'inertie, la vélocite ou un flux
 ```c
 float fadeOut (float value, float ratio)
 {
@@ -299,7 +325,9 @@ fadeOut(-54, 0.9);
 // 13 going slowly to 0
 fadeOut(13, 0.9999);
 ```
+![Clamp](http://leon196.github.io/Cours/images/velocity.png)
 
+##
 ### Simple character control
 ```c
 float acceleration = 3.0;
@@ -332,10 +360,10 @@ position += velocity;
 velocity = fadeOut(velocity, 0.95);
 
 ```
-
+##
 ### Reflect vector
-Calcule l'angle de reflection d'un vecteur selon une normal  
-Utile pour faire des collisions advanced
+Calcule l'angle de réflection d'un vecteur selon une normal  
+Utile pour faire des collisions avancées
 ```c
 // By abeall
 // http://www.actionscript.org/forums/showthread.php3?t=176052
@@ -355,3 +383,4 @@ Vector2 reflect (Vector2 vector, Vector2 normal)
   return new Vector2(x, y);
 }
 ```
+![Clamp](http://leon196.github.io/Cours/images/reflected.png)
